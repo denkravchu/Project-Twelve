@@ -1,0 +1,59 @@
+@import 'normalize';
+
+html {
+  @include font-light;
+  color: color('white');
+  background: color('blue-dark');
+}
+
+html {
+  font-size: 0.83333333333333vw;
+
+  @media screen and (max-width: point(xlg)) {
+    font-size: 0.83333333333333vw;
+  }
+  @media screen and (max-width: point(lg)) {
+    font-size: 0.83333333333333vw;
+  }
+  @media screen and (max-width: point(md)) {
+    font-size: 0.83333333333333vw;
+    padding: 0 spacing(16);
+  }
+  @media screen and (max-width: point(sm)) {
+    font-size: 5vw;
+  }
+}
+
+:root {
+  @each $name, $color in $colors {
+    --color-#{$name}: #{$color};
+  }
+  @each $name, $spacing in $spacings {
+    --spacing-#{$name}: #{$spacing};
+  }
+  @each $name, $font in $fonts {
+    --font-size-#{$name}: #{$font};
+  }
+}
+
+@font-face {
+  font-family: "NeueMachina";
+  src: url("~@/assets/fonts/NeueMachina-Light.otf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "NeueMachina";
+  src: url("~@/assets/fonts/NeueMachina-Regular.otf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "NeueMachina";
+  src: url("~@/assets/fonts/NeueMachina-Ultrabold.otf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+}
+
+
+
