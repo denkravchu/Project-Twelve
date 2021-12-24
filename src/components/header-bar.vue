@@ -4,9 +4,10 @@
             <img src="../assets/logo.png" alt="logo">
         </div>
         <div class="links">
-            <a href="#">Loream Ipsum</a>
-            <a href="#">Loream Ipsum</a>
-            <a href="#">Loream Ipsum</a>
+            <a v-for="(link, idx) in links" 
+            :key="idx"
+            :href="link.href"
+            >{{ link.title }}</a>
         </div>
         <a href="#" class="button">Learn More</a>
         <div @click="this.$emit('openNavbar', true)" class="button-menu">
@@ -24,7 +25,11 @@ export default {
     name: 'headerBar',
     data() {
         return {
-
+            links: [
+                { title: 'Loream Impsum', href: '#' },
+                { title: 'Loream Impsum', href: '#' },
+                { title: 'Loream Impsum', href: '#' },
+            ]
         }
     },
     props: {

@@ -1,6 +1,6 @@
 <template>
     <div class="screens">
-        <div class="screens__flow-container" :style="{ transform: `translate3d(0, ${this.scrollHeight}vh, 0)` }">
+        <div class="screens__flow-container" :style="{ transform: `translate3d(0, ${scrollHeight}vh, 0)` }">
             <project-twelve-screen :class="{'active': delayedActiveScreenNumber === 0}"></project-twelve-screen>
             <organic-sustainable-screen :class="{'active': delayedActiveScreenNumber === 1}"></organic-sustainable-screen>
             <econs-screen :class="{'active': delayedActiveScreenNumber === 2}"></econs-screen>
@@ -17,8 +17,6 @@
 </template>
 
 <script>
-import gsap from 'gsap'
-
 import projectTwelveScreen from './projectTwelveScreen.vue'
 import organicSustainableScreen from './organicSustainableScreen.vue'
 import econsScreen from './econsScreen.vue'
@@ -31,7 +29,6 @@ import tokenEconomyScreen from './tokenEconomyScreen.vue'
 import nomocracyScreen from './nomocracyScreen.vue'
 import roadmapScreen from './roadmapScreen.vue'
 
-import CustomScrollEvent from '../scripts/customScrollEvent'
 
 export default {
     name: 'screens',
@@ -50,106 +47,25 @@ export default {
         roadmapScreen
     },
 
-    created() {
-        // todo: связать эктивСкринСкролл чтобы скроллить при нажатии на кнопку слева
-        // this.$watch('activeScreenNumber', this.handleScroll)
-    },
-
-    mounted() {
-        const customScroll = new CustomScrollEvent
-        customScroll.mouseWheel()
-        customScroll.touchMove()
-        document.addEventListener('scroll', this.handleScroll)
-    },
 
     data() {
         return {
-            scrollingScreen: false,
-            activeScreenNumber: 0,
-            delayedActiveScreenNumber: 0,
-            screensCount: 11,
-            screenScrollTimingFunction: 'power2.inOut',
-            screenHeight: 100, //vh
-            scrollingTime: 1000,
-            scrollHeight: 0,
-            wheeling: false,
-            checkingWheelingTimeout: null,
-            enableFastScrollTimeout: null,
         }
     },
 
-    // props: {
-    //     activeScreenNumber: {
-    //         type: Number,
-    //         required: true
-    //     }
-    // },
+    props: {
+        delayedActiveScreenNumber: {
+            type: Number,
+            required: true
+        },
+        scrollHeight: {
+            type: Number,
+            required: true
+        },
+    },
 
     methods: {
-        handleScroll(event) {
-            this.stopWheelingIfWheelEventStopped()
-            const direction = event.detail.direction
-            const nextScreenNumber = this.activeScreenNumber - direction
 
-            if (!this.isEnableToScroll(nextScreenNumber)) { return }
-            if (this.scrollingScreen) { return }
-            if (this.wheeling) { return }
-
-            console.log('---> scrolling!')
-            this.wheeling = true
-            this.scrollingScreen = true
-
-            this.activeScreenNumber = nextScreenNumber
-            this.$emit('activeScreen', this.activeScreenNumber)
-            this.animateScrollHeight()
-
-            setTimeout(function() {
-                this.scrollingScreen = false
-                console.log('---> ready to scroll')
-            }.bind(this), this.scrollingTime)
-
-            // delayed active screen for starting animation on the middle of timeline
-            setTimeout(function() {
-                this.delayedActiveScreenNumber = this.activeScreenNumber
-            }.bind(this), this.scrollingTime / 2)
-
-            // if the previous scroll finished but the wheeling still going, may be some one scrolling without stopping, so i give him this opportunity)
-            clearTimeout(this.enableFastScrollTimeout)
-            this.enableFastScrollTimeout = setTimeout(function() {
-                clearTimeout(this.checkingWheelingTimeout)
-                this.wheeling = false
-            }.bind(this), this.scrollingTime + 1500)
-        },
-
-        isEnableToScroll(nextScreenNumber) {
-            return (nextScreenNumber >= 0 && nextScreenNumber < this.screensCount)
-        },
-
-        stopWheelingIfWheelEventStopped() {
-            // i check if user stopped wheeling, it fixes bug when u r not scrolling but the wheeling event is still working
-            if (this.wheeling) {
-                clearTimeout(this.checkingWheelingTimeout)
-                this.checkingWheelingTimeout = setTimeout(function() {
-                    this.wheeling = false
-                }.bind(this), 300)
-            }
-        },
-
-        animateScrollHeight() {
-            const newScrollHeight = this.screenHeight * this.activeScreenNumber * -1
-            const timeline = gsap.timeline()
-            timeline.to({ y: this.scrollHeight }, {
-                y: newScrollHeight,
-                ease: this.screenScrollTimingFunction,
-                duration: this.scrollingTime / 1000,
-                onUpdate: function() {
-                    this.scrollHeight = timeline.getChildren()[0].targets()[0].y
-                }.bind(this),
-                onComplete() {
-                    timeline.kill()
-                }
-            })
-        }
     },
 }
 </script>
@@ -165,11 +81,18 @@ export default {
             position: relative;
             width: 100%;
             height: 100vh;
-            padding: 0 spacing(84);
+            padding-left: 14.5rem;
+            padding-top: 6rem;
+            padding-bottom: 2rem;
+            padding-right: 2rem;
+
+            @media screen and (max-width: point(sm)) {
+                padding: 2rem;
+            }
         }
 
-        & > div:nth-child(2n) {
-            background: rgba(color('white'), 50%);
-        }
+        // & > div:nth-child(2n) {
+        //     background: rgba(color('white'), 50%);
+        // }
     }
 </style>

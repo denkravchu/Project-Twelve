@@ -234,7 +234,7 @@ export default {
 
         .nav-button:nth-child(n + 3) {
             @media screen and (max-width: point(sm)) {
-                margin-top: 1.4375rem;
+                margin-top: 1rem;
             }
         }
 
