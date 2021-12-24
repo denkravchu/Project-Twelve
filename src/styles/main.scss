@@ -20,7 +20,7 @@ html {
     padding: 0 spacing(16);
   }
   @media screen and (max-width: point(sm)) {
-    font-size: 5vw;
+    font-size: 4.266666666666667vw;
   }
 }
 
@@ -37,22 +37,34 @@ html {
 }
 
 @font-face {
-  font-family: "NeueMachina";
-  src: url("~@/assets/fonts/NeueMachina-Light.otf") format("truetype");
+  font-family: "Azonix";
+  src: url("~@/assets/fonts/Azonix.otf") format("truetype");
   font-style: normal;
   font-weight: 300;
 }
 @font-face {
-  font-family: "NeueMachina";
-  src: url("~@/assets/fonts/NeueMachina-Regular.otf") format("truetype");
+  font-family: "PlusJakartaDisplay";
+  src: url("~@/assets/fonts/PlusJakartaDisplay-Light.otf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "PlusJakartaDisplay";
+  src: url("~@/assets/fonts/PlusJakartaDisplay-Regular.otf") format("truetype");
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
-  font-family: "NeueMachina";
-  src: url("~@/assets/fonts/NeueMachina-Ultrabold.otf") format("truetype");
+  font-family: "PlusJakartaDisplay";
+  src: url("~@/assets/fonts/PlusJakartaDisplay-Medium.otf") format("truetype");
   font-style: normal;
   font-weight: 500;
+}
+@font-face {
+  font-family: "PlusJakartaDisplay";
+  src: url("~@/assets/fonts/PlusJakartaDisplay-Bold.otf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
 }
 
 

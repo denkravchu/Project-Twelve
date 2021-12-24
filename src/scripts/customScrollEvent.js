@@ -1,4 +1,4 @@
-export default class {
+export default class CustomScrollEvent {
     constructor() {
         this.DELTA_MIN = 90
         this.swipe_det = {

@@ -1,24 +1,28 @@
+@mixin font-azonix {
+  font-family: "Azonix", sans-serif;
+  font-weight: 300;
+}
 @mixin font-light {
-  font-family: "NeueMachina", sans-serif;
+  font-family: "PlusJakartaDisplay", sans-serif;
   font-weight: 300;
 }
 @mixin font-regular {
-  font-family: "NeueMachina", sans-serif;
-  font-weight: 300;
+  font-family: "PlusJakartaDisplay", sans-serif;
+  font-weight: 400;
+}
+@mixin font-medium {
+  font-family: "PlusJakartaDisplay", sans-serif;
+  font-weight: 500;
 }
 @mixin font-bold {
-  font-family: "NeueMachina", sans-serif;
-  font-weight: 300;
+  font-family: "PlusJakartaDisplay", sans-serif;
+  font-weight: 700;
 }
 
 $fonts: (
   16: 1rem,
+  18: 1.25rem,
   24: 1.5rem,
-  32: 2rem,
-  48: 3rem,
-  64: 4rem,
-  80: 5rem,
-  160: 10rem
 );
 
 @function font($name) {

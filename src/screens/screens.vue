@@ -1,6 +1,6 @@
 <template>
     <div class="screens">
-        <div class="flow-container" :style="{ transform: `translateY(${this.scrollHeight}vh)` }">
+        <div class="screens__flow-container" :style="{ transform: `translate3d(0, ${this.scrollHeight}vh, 0)` }">
             <project-twelve-screen :class="{'active': delayedActiveScreenNumber === 0}"></project-twelve-screen>
             <organic-sustainable-screen :class="{'active': delayedActiveScreenNumber === 1}"></organic-sustainable-screen>
             <econs-screen :class="{'active': delayedActiveScreenNumber === 2}"></econs-screen>
@@ -50,6 +50,11 @@ export default {
         roadmapScreen
     },
 
+    created() {
+        // todo: связать эктивСкринСкролл чтобы скроллить при нажатии на кнопку слева
+        // this.$watch('activeScreenNumber', this.handleScroll)
+    },
+
     mounted() {
         const customScroll = new CustomScrollEvent
         customScroll.mouseWheel()
@@ -69,9 +74,16 @@ export default {
             scrollHeight: 0,
             wheeling: false,
             checkingWheelingTimeout: null,
-            enableFastScrollTimeout: null
+            enableFastScrollTimeout: null,
         }
     },
+
+    // props: {
+    //     activeScreenNumber: {
+    //         type: Number,
+    //         required: true
+    //     }
+    // },
 
     methods: {
         handleScroll(event) {
@@ -88,6 +100,7 @@ export default {
             this.scrollingScreen = true
 
             this.activeScreenNumber = nextScreenNumber
+            this.$emit('activeScreen', this.activeScreenNumber)
             this.animateScrollHeight()
 
             setTimeout(function() {
@@ -147,7 +160,7 @@ export default {
         max-height: 100vh;
     }
 
-    .flow-container {
+    .screens__flow-container {
         & > div:nth-child(n + 1) {
             position: relative;
             width: 100%;
