@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       activeScreenNumber: 0,
-      delayedActiveScreenNumber: 0,
+      delayedActiveScreenNumber: -1,
       screensCount: 11,
       screenScrollTimingFunction: 'power2.inOut',
       screenHeight: 100, //vh
@@ -45,6 +45,7 @@ export default {
         customScroll.mouseWheel()
         customScroll.touchMove()
         document.addEventListener('scroll', this.handleScroll)
+        this.delayedActiveScreenNumber = 0
   },
 
   computed: {

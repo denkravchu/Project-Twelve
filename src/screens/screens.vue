@@ -84,15 +84,14 @@ export default {
             padding-left: 14.5rem;
             padding-top: 6rem;
             padding-bottom: 2rem;
-            padding-right: 2rem;
+            padding-right: 4rem;
 
             @media screen and (max-width: point(sm)) {
                 padding: 2rem;
+                @media screen and (min-aspect-ratio: 320 / 600) {
+                    padding-top: 6rem;
+                }
             }
         }
-
-        // & > div:nth-child(2n) {
-        //     background: rgba(color('white'), 50%);
-        // }
     }
 </style>

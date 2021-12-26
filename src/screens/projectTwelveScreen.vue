@@ -62,6 +62,7 @@ export default {
         @media screen and (max-width: point(sm)) {
             align-items: center;
             justify-content: flex-start;
+            padding-top: 2rem !important;
         }
 
         .project-twelve__title {
@@ -252,23 +253,6 @@ export default {
             max-width: 0;
             transition: max-width var(--content-appear-time) ease;
         }
-        .learn-button {
-            opacity: 0;
-            transition: var(--content-appear-time) opacity .25s ease;
-            
-            svg rect {
-                transform: matrix(.5, 0, 0, .5, 12.5, 12.5);
-                transition: var(--content-appear-time) transform .5s, fill .3s ease;
-            }
-            svg .tip {
-                transform: translate3d(-2.25rem, 0, 0);
-                transition: var(--content-appear-time) transform .5s;
-            }
-            svg .cane {
-                transform: matrix(.25, 0, 0, 1, 0, 0);
-                transition: var(--content-appear-time) transform .5s;
-            }
-        }
         .message {
             .vertical-divider {
                 max-height: 0;
@@ -294,19 +278,6 @@ export default {
         }
         .divider {
             max-width: var(--divider-width);
-        }
-        .learn-button {
-            opacity: 1;
-            
-            svg rect {
-                transform: matrix(1, 0, 0, 1, 0, 0);
-            }
-            svg .tip {
-                transform: translate3d(0, 0, 0)
-            }
-            svg .cane {
-                transform: matrix(1, 0, 0, 1, 0, 0);
-            }
         }
         .message {
             .vertical-divider {

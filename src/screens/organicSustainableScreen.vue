@@ -1,12 +1,48 @@
 <template>
     <div class="organic-sustainable">
-        
+        <div class="organic-sustainable__description">
+            <p class="screen-subtitle">Building a gaming ecosystem that’s truly</p>
+            <h2 class="screen-title">ORGANIC &<br>SUSTAINABLE</h2>
+            <div class="text-block">
+                <p>Safeguard</p>
+                <p>P12 token: a POS DAO designed to safeguard meritocracy in GameFi</p>
+            </div>
+            <learn-button></learn-button>
+        </div>
+        <div class="organic-sustainable__magazine">
+            <div class="row">
+                <div class="row__text-content">
+                    <h4>Safeguard</h4>
+                    <p>P12 token: a POS DAO designed to safeguard meritocracy in GameFi</p>
+                </div>
+                <img src="../assets/images/safeguard.png" alt="safeguard">
+            </div>
+            <div class="row">
+                <div class="row__text-content">
+                    <h4>Stability</h4>
+                    <p>Developers within P12 ecosystem are deprived ability to slash the game currency nor to manipulate the NFT market</p>
+                </div>
+                <img src="../assets/images/stability.png" alt="stability">
+            </div>
+            <div class="row">
+                <div class="row__text-content">
+                    <h4>Growth</h4>
+                    <p>Developers will only be rerewarded from sustainable growth of their game & game community</p>
+                </div>
+                <img src="../assets/images/growth.png" alt="growth">
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+import learnButton from '../components/learn-button.vue'
+
 export default {
     name: 'organicSustainableScreen',
+    components: {
+        learnButton
+    },
     data() {
         return {
 
@@ -16,4 +52,226 @@ export default {
 </script>
 
 <style lang='scss'>
+    .organic-sustainable {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            background: url(../assets/images/blur-1.png) no-repeat;
+            background-size: contain;
+            background-position: center;
+            width: 150vh;
+            height: 150vh;
+            left: -75vh;
+            top: -25vh;
+            opacity: .7;
+            z-index: 1;
+        }
+    }
+
+    .organic-sustainable__description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        flex: 1;
+        margin-right: 6.25rem;
+        z-index: 1;
+
+        .screen-title {
+            margin-top: 2rem;
+        }
+
+        .text-block {
+            margin-top: 2.9375rem;
+            margin-left: 3.375rem;
+
+            p:first-child {
+                position: relative;
+                @include font-medium;
+                font-size: font(22);
+
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    right: calc(100% + 1.625rem);
+                    transform: translateY(-50%);
+                    width: 1.75rem;
+                    height: 4px;
+                    background: linear-gradient(90deg, #9796F0 0%, #FBC7D4 100%);
+                }
+            }
+            p:last-child {
+                @include font-light;
+                font-size: font(14);
+                max-width: 13.875rem;
+                margin-top: 1rem;
+                color: rgba(color('white'), 80%);
+            }
+        }
+
+        .learn-button {
+            margin-top: 3.125rem;
+        }
+    }
+
+    .organic-sustainable__magazine {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: auto;
+        padding: 4rem 0;
+        margin-top: 2rem;
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(270deg, rgba(255, 255, 255, 0.0855) -16.64%, rgba(255, 255, 255, 0.1035) -16.64%, rgba(255, 255, 255, 0.15) 47.12%, rgba(255, 255, 255, 0.102) 109.56%);
+            top: 2rem; left: 3.75rem;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 90%;
+            width: 1px;
+            background: linear-gradient(270deg, rgba(255, 255, 255, 0.0855) -16.64%, rgba(255, 255, 255, 0.1035) -16.64%, rgba(255, 255, 255, 0.15) 47.12%, rgba(255, 255, 255, 0.102) 109.56%);
+            top: 3rem; left: 0;
+        }
+
+        .row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 38.375rem;
+
+            img {
+                width: 19.1875rem;
+                height: auto;
+            }
+        }
+        .row:nth-child(2) {
+            flex-direction: row-reverse;
+        }
+        .row:nth-child(2) h4:before {
+            content: '2'
+        }
+        .row:nth-child(3) h4:before {
+            content: '3'
+        }
+
+        .row__text-content {
+            padding: 2rem 3rem;
+            width: 19.1875rem;
+
+            h4 {
+                position: relative;
+                @include font-medium;
+                font-size: font(18);
+                width: 100%;
+
+                &:before {
+                    content: '1';
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: color('white');
+                    @include font-azonix;
+                    font-size: font(40);
+                }
+            }
+
+            p {
+                @include font-light;
+                font-size: font(14);
+                line-height: 1.25rem;
+                margin-top: 1.5rem;
+            }
+        }
+
+
+    }
+
+    // animation styles before
+    $content-left: (
+        '.screen-subtitle',
+        '.screen-title',
+        '.text-block',
+        '.learn-button'
+    );
+    $content-right: (
+        '.organic-sustainable__magazine .row:nth-child(1)',
+        '.organic-sustainable__magazine .row:nth-child(2)',
+        '.organic-sustainable__magazine .row:nth-child(3)',
+        '',
+    );
+    .organic-sustainable {
+        @for $i from 1 through 4 {
+            $class-left: nth($content-left, $i);
+            $class-right: nth($content-right, $i);
+
+            #{$class-left}, #{$class-right} {
+                transition: var(--content-appear-time) transform #{$i / 10}s, var(--content-appear-time) opacity #{$i / 10}s;
+                transform: translate3d(0, 5rem, 0);
+                opacity: 0;
+            }
+        }
+
+        &:before {
+            opacity: 0;
+            transition: var(--content-appear-time) opacity;
+        }
+
+        .organic-sustainable__magazine {
+            &:before, &:after {
+                opacity: 0;
+                transition: var(--content-appear-time) transform, var(--content-appear-time) opacity;
+            }
+
+            &:before {
+                transform: translate3d(5rem, 0, 0);
+            }
+            &:after {
+                transform: translate3d(0, 5rem, 0);
+            }
+        }
+    }
+    // animation styles after
+    .organic-sustainable.active {
+        @for $i from 1 through 4 {
+            $class-left: nth($content-left, $i);
+            $class-right: nth($content-right, $i);
+
+            #{$class-left}, #{$class-right} {
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+        }
+
+        &:before {
+            opacity: .7;
+        }
+
+        .organic-sustainable__magazine {
+            &:before, &:after {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    }
+
 </style>

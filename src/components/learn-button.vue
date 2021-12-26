@@ -71,4 +71,39 @@ export default {
             fill: rgba(color('blue'), 1)
         }
     }
+
+    // anim 
+    .learn-button {
+            opacity: 0;
+            transition: var(--content-appear-time) opacity .25s ease;
+            
+            svg rect {
+                transform: matrix(.5, 0, 0, .5, 12.5, 12.5);
+                transition: var(--content-appear-time) transform .5s, fill .3s ease;
+            }
+            svg .tip {
+                transform: translate3d(-2.25rem, 0, 0);
+                transition: var(--content-appear-time) transform .5s;
+            }
+            svg .cane {
+                transform: matrix(.25, 0, 0, 1, 0, 0);
+                transition: var(--content-appear-time) transform .5s;
+            }
+    }
+
+    .active {
+        .learn-button {
+            opacity: 1;
+            
+            svg rect {
+                transform: matrix(1, 0, 0, 1, 0, 0);
+            }
+            svg .tip {
+                transform: translate3d(0, 0, 0)
+            }
+            svg .cane {
+                transform: matrix(1, 0, 0, 1, 0, 0);
+            }
+        }
+    }
 </style>
