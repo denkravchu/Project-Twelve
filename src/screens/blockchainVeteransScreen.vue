@@ -79,7 +79,7 @@ export default {
             }
 
             span {
-                display: inline-block;
+                display: block;
                 text-align: center;
 
             }

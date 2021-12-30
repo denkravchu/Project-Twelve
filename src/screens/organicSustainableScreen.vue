@@ -84,7 +84,7 @@ export default {
         z-index: 1;
 
         .screen-title {
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         .text-block {

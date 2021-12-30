@@ -71,5 +71,25 @@ html {
   font-weight: 700;
 }
 
+        // animation styles before
+        $content: (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+        @each $i in $content {
+          .-trAnim-#{$i} {
+            transition: var(--content-appear-time) transform #{$i / 10}s, var(--content-appear-time) opacity #{$i / 10}s;
+            transform: translate3d(0, 5rem, 0);
+            opacity: 0;
+          } 
+        }
+      
+      // animation styles after
+      .active {
+          @each $i in $content {
+            .-trAnim-#{$i} {
+              transform: translate3d(0, 0, 0);
+              opacity: 1;
+            }
+          }
+      }
+
 
 

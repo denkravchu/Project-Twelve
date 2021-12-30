@@ -1,12 +1,39 @@
 <template>
     <div class="token-economy">
-        
+        <div class="token-economy__description">
+            <p class="screen-subtitle -trAnim-1">Solution Econs</p>
+            <h2 class="screen-title -trAnim-2">token<br>Ecomomy</h2>
+            <p class="text-block -trAnim-3">There will be many planets and game worlds in the Metaverse, each with own gameplays, governance, and token economies. P12 is the top level token for the whole Metaverse</p>
+            <learn-button class="-trAnim-4"></learn-button>
+        </div>
+        <div class="token-economy__slider">
+            <div class="token-economy__sliders -trAnim-3">
+                <div class="slide">
+                    <h4>P12 is profit-sharing token.</h4>
+                    <p class="subtitle">It symbolizes the ownership of a unit piece of the Metaverse, and benefits from the growth of GDP & taxation</p>
+                    <ul>
+                        <li>A percentage of taxation will be profit-shared with P12 starmakers</li>
+                        <li>For the portion of P12 that's not staked, the corresponding the amount of P12 that should be rewarded, will be burned instead (the deflation</li>
+                        <li>For the portion of P12 that’s staked, profit share will materialize during withdrawal</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="stages -trAnim-4">
+                <p>01</p>
+                <div class="line"></div>
+                <p>03</p>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+import learnButton from '../components/learn-button.vue'
 export default {
     name: 'tokenEconomyScreen',
+    components: {
+        learnButton
+    },
     data() {
         return {
 
@@ -16,5 +43,200 @@ export default {
 </script>
 
 <style lang='scss'>
+    .token-economy {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @media screen and (max-width: point(sm)) {
+            flex-direction: column;
+            justify-content: center;
+        }
 
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            background: url(../assets/images/blur-5.png) no-repeat;
+            background-size: contain;
+            background-position: center;
+            width: 100vw;
+            height: 100vw;
+            right: -50vw;
+            opacity: .7;
+            z-index: 1;
+            @media screen and (max-width: point(sm)) {
+                width: 100vh;
+                height: 100vh;
+                top: -20vh;
+                right: -50vh;
+            }
+        }
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            background: url(../assets/images/blur-10.png) no-repeat;
+            background-size: contain;
+            background-position: center;
+            width: 100vw;
+            height: 100vw;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+            opacity: .7;
+            z-index: 1;
+            @media screen and (max-width: point(sm)) {
+                width: 100vh;
+                height: 100vh;
+                top: 80vh;
+            }
+        }
+    }
+    .token-economy__description {
+        z-index: 3;
+        @media screen and (max-width: point(sm)) {
+            width: 100%;
+        }
+        .screen-subtitle {
+            margin-top: 2rem;
+        }
+
+        .screen-title {
+            position: relative;
+            margin-top: 1rem;
+        }
+        .text-block {
+            @include font-light;
+            font-size: font(16);
+            line-height: 1.375rem;
+            max-width: 17.625rem;
+            margin-top: 3.6875rem;
+        }
+
+        .learn-button {
+            margin-top: 5.0625rem;
+        }
+    }
+    .token-economy__slider {
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 12.5rem;
+        @media screen and (max-width: point(sm)) {
+            margin-left: 0;
+            // ---------------------------------
+            display: none;
+        }
+
+        .token-economy__sliders {
+            background: rgba(color('white'), 0.06);
+            padding: 7.25rem 5rem;
+            backdrop-filter: blur(50px);
+            .slide {
+                h4 {
+                    @include font-bold;
+                    font-size: font(22);
+                    line-height: 2rem;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    &:before {
+                        content: '01';
+                        @include font-azonix;
+                        font-size: 2.1875rem;
+                        margin-right: 0.875rem;
+                    }
+                }
+
+                .subtitle {
+                    @include font-regular;
+                    font-size: font(14);
+                    line-height: 1.3125rem;
+                    margin-top: 0.75rem;
+                    max-width: 20rem;
+                }
+
+                ul {
+                    --line-height: 1.3125rem;
+                    @include font-light;
+                    font-size: font(14);
+                    line-height: var(--line-height);
+                    margin-top: 2rem;
+                    max-width: 22rem;
+                    opacity: 0.85;
+
+                    li {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+
+                        &:before {
+                            content: '';
+                            display: block;
+                            width: .5rem;
+                            height: .5rem;
+                            min-width: .5rem;
+                            min-height: .5rem;
+                            background: color('white');
+                            border-radius: 50%;
+                            margin-top: calc(var(--line-height) / 3);
+                            margin-right: 1rem;
+                        }
+                    }
+
+                    li:not(:first-child) {
+                        margin-top: 1rem;
+                    }
+                }
+            }
+        }
+
+        .stages {
+            position: relative;
+            @include font-azonix;
+            font-size: font(22);
+            margin-left: 3.4375rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 7rem;
+                height: 7rem;
+                border-radius: 50%;
+                background: rgba(color('white'), 1%);
+                box-shadow: inset -10px 14px 20px rgba(255, 255, 255, 0.08);
+                backdrop-filter: blur(44px);
+                z-index: -1;
+                top: 10%; left: -2.5rem;
+                transform: translateY(-50%);
+            }
+
+            .line {
+                height: 3.375rem;
+                width: 2px;
+                background: color('white');
+                margin: 1.3125rem 0;
+            }
+        }
+    }
+    // animation styles before
+    .token-economy {
+        &:before, &:after {
+            opacity: 0;
+            transition: calc(var(--content-appear-time) + .5s) opacity;
+        }
+    }
+    // animation styles after
+    .token-economy.active {
+        &:before, &:after {
+            opacity: 1;
+        }
+    }
 </style>

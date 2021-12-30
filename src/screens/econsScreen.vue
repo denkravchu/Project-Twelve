@@ -84,11 +84,7 @@ export default {
         z-index: 1;
 
         .screen-title {
-            margin-top: 2rem;
-
-            @media screen and (max-width: point(sm)) {
-                margin-top: 1rem;
-            }
+            margin-top: 1rem;
         }
 
         .text-block {
