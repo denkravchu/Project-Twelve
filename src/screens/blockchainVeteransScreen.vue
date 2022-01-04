@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import learnButton from '../components/learn-button.vue'
+import learnButton from '../components/learnButton.vue'
 
 export default {
     name: 'blockchainVeteransScreen',

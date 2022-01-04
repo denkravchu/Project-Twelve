@@ -3,14 +3,14 @@ canvas.width = canvas.clientWidth;
 canvas.height = canvas.clientHeight;
 
 let config = {
-    SIM_RESOLUTION: 128,
+    SIM_RESOLUTION: 200,
     DYE_RESOLUTION: 512,
-    DENSITY_DISSIPATION: 0.97,
-    VELOCITY_DISSIPATION: 0.98,
+    DENSITY_DISSIPATION: 0.95,
+    VELOCITY_DISSIPATION: 0.95,
     PRESSURE_DISSIPATION: 0.8,
     PRESSURE_ITERATIONS: 20,
     CURL: 30,
-    SPLAT_RADIUS: 0.5,
+    SPLAT_RADIUS: 0.1,
     SHADING: true,
     COLORFUL: true,
     PAUSED: false,

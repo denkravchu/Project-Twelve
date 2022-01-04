@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import learnButton from '../components/learn-button.vue'
+import learnButton from '../components/learnButton.vue'
 export default {
     name: 'tokenEconomyScreen',
     components: {
@@ -50,7 +50,8 @@ export default {
         align-items: center;
         @media screen and (max-width: point(sm)) {
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
+            height: 200vh !important;
         }
 
         &:before {
@@ -96,6 +97,10 @@ export default {
         z-index: 3;
         @media screen and (max-width: point(sm)) {
             width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .screen-subtitle {
             margin-top: 2rem;
@@ -125,14 +130,18 @@ export default {
         margin-left: 12.5rem;
         @media screen and (max-width: point(sm)) {
             margin-left: 0;
-            // ---------------------------------
-            display: none;
+            height: 100vh;
         }
 
         .token-economy__sliders {
             background: rgba(color('white'), 0.06);
             padding: 7.25rem 5rem;
             backdrop-filter: blur(50px);
+
+            @media screen and (max-width: point(sm)) {
+                padding: 2rem;
+            }
+
             .slide {
                 h4 {
                     @include font-bold;
@@ -202,6 +211,10 @@ export default {
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+
+            @media screen and (max-width: point(sm)) {
+                display: none;
+            }
 
             &:before {
                 content: '';

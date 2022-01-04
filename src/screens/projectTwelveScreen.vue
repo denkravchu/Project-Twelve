@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import learnButton from '../components/learn-button.vue'
+import learnButton from '../components/learnButton.vue'
 import { fluidSimulation } from '../scripts/fluidSimulation.js'
 export default {
     name: 'projectTwelveScreen',

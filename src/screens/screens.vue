@@ -74,6 +74,7 @@ export default {
     .screens {
         overflow: hidden;
         max-height: 100vh;
+        z-index: 5;
     }
 
     .screens__flow-container {

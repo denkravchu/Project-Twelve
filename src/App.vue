@@ -3,6 +3,7 @@
     <screens :delayedActiveScreenNumber='delayedActiveScreenNumber' :scrollHeight='scrollHeight'></screens>
     <navigation-bar @openScreen='openScreen' @closeNavbar='isNavbarActive = $event' :activeScreenNumber='activeScreenNumber' :isNavbarActive='isNavbarActive'></navigation-bar>
     <header-bar @openNavbar='isNavbarActive = $event' :isNavbarActive='isNavbarActive'></header-bar>
+    <fluid-ball :activeScreenNumber='activeScreenNumber'></fluid-ball>
   </div>
 </template>
 
@@ -11,8 +12,9 @@ import gsap from 'gsap'
 import CustomScrollEvent from './scripts/customScrollEvent'
 
 import screens from './screens/screens.vue'
-import navigationBar from './components/navigation-bar.vue'
-import headerBar from './components/header-bar.vue'
+import navigationBar from './components/navigationBar.vue'
+import headerBar from './components/headerBar.vue'
+import fluidBall from './components/fluidBall.vue'
 
 export default {
   name: 'App',
@@ -21,10 +23,12 @@ export default {
       screens,
       navigationBar,
       headerBar,
+      fluidBall,
   },
 
   data() {
     return {
+      mobileBreakpoint: 576,
       activeScreenNumber: 0,
       delayedActiveScreenNumber: -1,
       screensCount: 11,
@@ -82,7 +86,15 @@ export default {
 
             // delayed active screen for starting animation on the middle of timeline
             setTimeout(function() {
-                this.delayedActiveScreenNumber = this.activeScreenNumber
+                // bad code for mobile adaptive (fucking designer)
+                if (window.innerWidth <= this.mobileBreakpoint && this.activeScreenNumber > 1 && this.activeScreenNumber <= 9) {
+                  this.delayedActiveScreenNumber = this.activeScreenNumber - 1
+                } else 
+                if (window.innerWidth <= this.mobileBreakpoint && this.activeScreenNumber > 9) {
+                  this.delayedActiveScreenNumber = this.activeScreenNumber - 2
+                } else {
+                  this.delayedActiveScreenNumber = this.activeScreenNumber
+                }
             }.bind(this), this.scrollingTime / 2)
 
             // if the previous scroll finished but the wheeling still going, may be some one scrolling without stopping, so i give him this opportunity)
@@ -94,6 +106,8 @@ export default {
     },
 
     isEnableToScroll(nextScreenNumber) {
+            // bad code for mobile adaptive (fucking designer)
+            if (window.innerWidth <= this.mobileBreakpoint) return (nextScreenNumber >= 0 && nextScreenNumber < this.screensCount + 2)
             return (nextScreenNumber >= 0 && nextScreenNumber < this.screensCount)
     },
 

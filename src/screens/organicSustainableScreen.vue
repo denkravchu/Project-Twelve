@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import learnButton from '../components/learn-button.vue'
+import learnButton from '../components/learnButton.vue'
 
 export default {
     name: 'organicSustainableScreen',
@@ -57,6 +57,12 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        z-index: 3;
+
+        @media screen and (max-width: point(sm)) {
+            height: 200vh !important;
+            flex-direction: column;
+        }
 
         &:before {
             content: '';
@@ -71,6 +77,7 @@ export default {
             top: -25vh;
             opacity: .7;
             z-index: 1;
+            pointer-events: none;
         }
     }
 
@@ -81,15 +88,28 @@ export default {
         align-items: flex-start;
         flex: 1;
         margin-right: 6.25rem;
-        z-index: 1;
+        z-index: 3;
+
+        @media screen and (max-width: point(sm)) {
+            margin-right: 0;
+            height: 100vh;
+        }
 
         .screen-title {
             margin-top: 1rem;
+            
+            @media screen and (max-width: point(sm)) {
+                margin-left: 1.75rem;
+            }
         }
 
         .text-block {
             margin-top: 2.9375rem;
             margin-left: 3.375rem;
+
+            @media screen and (max-width: point(sm)) {
+                margin-left: 6.375rem;
+            }
 
             p:first-child {
                 position: relative;
@@ -130,6 +150,18 @@ export default {
         width: auto;
         padding: 4rem 0;
         margin-top: 2rem;
+        z-index: 3;
+
+        @media screen and (max-width: point(sm)) {
+            margin-top: 0;
+            height: 100vh;
+            padding-top: 8rem;
+            max-width: 100%;
+            overflow-x: scroll;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
 
         &:before {
             content: '';
@@ -139,6 +171,7 @@ export default {
             height: 1px;
             background: linear-gradient(270deg, rgba(255, 255, 255, 0.0855) -16.64%, rgba(255, 255, 255, 0.1035) -16.64%, rgba(255, 255, 255, 0.15) 47.12%, rgba(255, 255, 255, 0.102) 109.56%);
             top: 2rem; left: 3.75rem;
+            pointer-events: none;
         }
 
         &:after {
@@ -149,6 +182,13 @@ export default {
             width: 1px;
             background: linear-gradient(270deg, rgba(255, 255, 255, 0.0855) -16.64%, rgba(255, 255, 255, 0.1035) -16.64%, rgba(255, 255, 255, 0.15) 47.12%, rgba(255, 255, 255, 0.102) 109.56%);
             top: 3rem; left: 0;
+            pointer-events: none;
+        }
+
+        @media screen and (max-width: point(sm)) {
+            &:before, &:after {
+                display: none;
+            }
         }
 
         .row {
@@ -157,9 +197,25 @@ export default {
             justify-content: space-between;
             width: 38.375rem;
 
+            @media screen and (max-width: point(sm)) {
+                flex-direction: column !important;
+                width: 80%;
+                min-width: 80%;
+            }
+
+
             img {
                 width: 19.1875rem;
                 height: auto;
+                @media screen and (max-width: point(sm)) {
+                    width: 100%;
+                }
+            }
+
+            &:not(:first-child) {
+                @media screen and (max-width: point(sm)) {
+                    margin-left: 2rem;
+                }
             }
         }
         .row:nth-child(2) {
@@ -175,6 +231,13 @@ export default {
         .row__text-content {
             padding: 2rem 3rem;
             width: 19.1875rem;
+
+            @media screen and (max-width: point(sm)) {
+                padding-left: 0;
+                padding-right: 0;
+                width: 100%;
+                height: 12rem;
+            }
 
             h4 {
                 position: relative;
