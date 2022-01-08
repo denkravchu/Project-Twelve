@@ -447,18 +447,18 @@ export default {
             @media screen and (min-aspect-ratio: 375 / 800) {
                 font-size: .7rem;
             }
-            @media screen and (min-aspect-ratio: 375 / 725) {
-                font-size: .65rem;
-            }
-            @media screen and (min-aspect-ratio: 375 / 690) {
-                font-size: .5rem;
-            }
-            @media screen and (min-aspect-ratio: 375 / 585) {
-                font-size: .4rem;
-            }
-            @media screen and (min-aspect-ratio: 375 / 520) {
-                font-size: .3rem;
-            }
+            // @media screen and (min-aspect-ratio: 375 / 725) {
+            //     font-size: .65rem;
+            // }
+            // @media screen and (min-aspect-ratio: 375 / 690) {
+            //     font-size: .5rem;
+            // }
+            // @media screen and (min-aspect-ratio: 375 / 585) {
+            //     font-size: .4rem;
+            // }
+            // @media screen and (min-aspect-ratio: 375 / 520) {
+            //     font-size: .3rem;
+            // }
         }
     }
 

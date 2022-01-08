@@ -181,6 +181,12 @@ export default {
         flex-direction: column;
         justify-content: center;
 
+        @media screen and (max-width: point(sm)) {
+            height: 200vh !important;
+            justify-content: flex-start;
+            padding-top: 14rem !important;
+        }
+
         &:before {
             content: '';
             display: block;
@@ -231,6 +237,7 @@ export default {
         @media screen and (max-width: point(sm)) {
             flex-direction: column;
             align-items: flex-start;
+            height: 100%;
         }
 
         .text-block {
@@ -239,7 +246,7 @@ export default {
 
             h4, ul {
                 @media screen and (max-width: point(sm)) {
-                    transform: skewY(2deg);
+                    // transform: skewY(2deg);
                 }
             }
             
@@ -279,21 +286,22 @@ export default {
         .text-block {
             @media screen and (max-width: point(sm)) {
                 margin-top: 2rem;
-                @media screen and (min-aspect-ratio: 375 / 774) {
-                    margin-top: 1rem;
-                }
+                margin-bottom: 2rem;
+                // @media screen and (min-aspect-ratio: 375 / 774) {
+                //     margin-top: 1rem;
+                // }
             }
             &:nth-child(2) {
                 margin-bottom: 2rem;
                 @media screen and (max-width: point(sm)) {
-                    margin-bottom: 0;
+                    margin-bottom: 2rem;
                     margin-left: 2rem;
                 }
             }
             &:nth-child(3) {
                 margin-bottom: 10rem;
                 @media screen and (max-width: point(sm)) {
-                    margin-bottom: 0;
+                    margin-bottom: 2rem;
                     margin-left: 6rem;
                 }
             }
