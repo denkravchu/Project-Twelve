@@ -226,6 +226,10 @@ export default {
         .screen-title {
             position: relative;
             margin-top: 1rem;
+
+            @media screen and (max-width: point(sm)) {
+                text-align: center;
+            }
         }
     }
     .roadmap__text-content {
@@ -236,7 +240,7 @@ export default {
 
         @media screen and (max-width: point(sm)) {
             flex-direction: column;
-            align-items: flex-start;
+            align-items: flex-end;
             height: 100%;
         }
 
@@ -290,26 +294,34 @@ export default {
                 // @media screen and (min-aspect-ratio: 375 / 774) {
                 //     margin-top: 1rem;
                 // }
+                @media screen and (max-width: point(sm)) {
+                    margin-bottom: 0;
+                    margin-right: 2.5rem;
+                    margin-top: 4rem;
+                }
             }
             &:nth-child(2) {
                 margin-bottom: 2rem;
                 @media screen and (max-width: point(sm)) {
-                    margin-bottom: 2rem;
-                    margin-left: 2rem;
+                    margin-bottom: 0;
+                    margin-right: 4.5rem;
+                    margin-top: 4rem;
                 }
             }
             &:nth-child(3) {
                 margin-bottom: 10rem;
                 @media screen and (max-width: point(sm)) {
-                    margin-bottom: 2rem;
-                    margin-left: 6rem;
+                    margin-bottom: 0;
+                    margin-right: 3rem;
+                    margin-top: 4rem;
                 }
             }
             &:nth-child(4) {
                 margin-bottom: 18rem;
                 @media screen and (max-width: point(sm)) {
                     margin-bottom: 0;
-                    margin-left: 10rem;
+                    margin-right: -1rem;
+                    margin-top: 4rem;
                 }
             }
         }
@@ -341,8 +353,11 @@ export default {
                 top: -30vw; left: -40vw;
             }
             @media screen and (max-width: point(sm)) {
-                width: 150vh;
+                width: 400vw;
+                height: auto;
                 transform: rotate(90deg);
+                left: -130vw;
+                top: 15vw;
             }
         }
     }

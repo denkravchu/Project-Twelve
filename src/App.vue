@@ -90,11 +90,15 @@ export default {
                 if (window.innerWidth <= this.mobileBreakpoint && this.activeScreenNumber > 1 && this.activeScreenNumber <= 9) {
                   this.delayedActiveScreenNumber = this.activeScreenNumber - 1
                 } else 
-                if (window.innerWidth <= this.mobileBreakpoint && this.activeScreenNumber > 9) {
+                if (window.innerWidth <= this.mobileBreakpoint && this.activeScreenNumber > 9 && this.activeScreenNumber <= 12) {
                   this.delayedActiveScreenNumber = this.activeScreenNumber - 2
+                } else 
+                if (window.innerWidth <= this.mobileBreakpoint && this.activeScreenNumber > 12) {
+                  this.delayedActiveScreenNumber = this.activeScreenNumber - 3
                 } else {
                   this.delayedActiveScreenNumber = this.activeScreenNumber
                 }
+                console.log(this.delayedActiveScreenNumber)
             }.bind(this), this.scrollingTime / 2)
 
             // if the previous scroll finished but the wheeling still going, may be some one scrolling without stopping, so i give him this opportunity)
@@ -107,7 +111,7 @@ export default {
 
     isEnableToScroll(nextScreenNumber) {
             // bad code for mobile adaptive (fucking designer)
-            if (window.innerWidth <= this.mobileBreakpoint) return (nextScreenNumber >= 0 && nextScreenNumber < this.screensCount + 2)
+            if (window.innerWidth <= this.mobileBreakpoint) return (nextScreenNumber >= 0 && nextScreenNumber < this.screensCount + 3)
             return (nextScreenNumber >= 0 && nextScreenNumber < this.screensCount)
     },
 

@@ -149,8 +149,11 @@ export default {
             if (window.innerWidth <= this.adaptivePointSm && this.activeScreenNumber > 1 && this.activeScreenNumber <= 9) {
               this.navbarActiveScreenNumber = this.activeScreenNumber - 1
             } else 
-            if (window.innerWidth <= this.adaptivePointSm && this.activeScreenNumber > 9) {
+            if (window.innerWidth <= this.adaptivePointSm && this.activeScreenNumber > 9 && this.activeScreenNumber <= 12) {
               this.navbarActiveScreenNumber = this.activeScreenNumber - 2
+            } else
+            if (window.innerWidth <= this.adaptivePointSm && this.activeScreenNumber > 12) {
+              this.navbarActiveScreenNumber = this.activeScreenNumber - 3
             } else {
               this.navbarActiveScreenNumber = this.activeScreenNumber
             }

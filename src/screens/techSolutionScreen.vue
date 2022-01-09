@@ -346,7 +346,7 @@ export default {
                 background-size: contain;
                 background-position: center;
             }
-            @media screen and (max-width: point(sm)) {font-size: 1.25em; top: 85%;}
+            @media screen and (max-width: point(sm)) {font-size: 1.25em; top: 90%;}
         }
     }
     .tech-solution__scheme {
@@ -360,7 +360,7 @@ export default {
                 font-size: 1.375em;
                 @media screen and (max-width: point(sm)) {font-size: 1em;}
             }
-            @media screen and (max-width: point(sm)) {top: 4%;}
+            @media screen and (max-width: point(sm)) {top: 0;}
         }
         .processor-block:nth-child(2) {
             left: 30%; top: 25%;
@@ -389,17 +389,17 @@ export default {
                     top: auto;
                 }
             }
-            @media screen and (max-width: point(sm)) {left: 0; top: 55%;}
+            @media screen and (max-width: point(sm)) {left: 0; top: 60%;}
         }
         .processor-block:nth-child(4) {
             left: 75%; top: 35%;
             .processor {width: 13em; height: 9.625em;}
             .title {left: 40%; bottom: 120%;}
-            @media screen and (max-width: point(sm)) {left: 50%; top: 60%;}
+            @media screen and (max-width: point(sm)) {left: 50%; top: 68%;}
         }
         .reward {
             left: 25%; top: 95%;
-            @media screen and (max-width: point(sm)) {left: 55%; top: 85%;}
+            @media screen and (max-width: point(sm)) {left: 55%; top: 95%;}
         }
     }
 
